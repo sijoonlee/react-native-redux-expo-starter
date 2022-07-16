@@ -3,7 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux'
 
 import rootStore from './src/store/rootStore'
-import Counter from './src/components/Counter'
+import SignIn from './src/screens/SignIn';
+
 
 export default function App() {
   return (
@@ -11,7 +12,7 @@ export default function App() {
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
       <Provider store={rootStore}>
-        <Counter/>
+        <SignIn/>
       </Provider>
     </View>
   );
