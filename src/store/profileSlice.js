@@ -21,20 +21,27 @@ export const profileSlice = createSlice({
       // Use the PayloadAction type to declare the contents of `action.payload`
       setEmail: (state, action) => {
         state.email = action.payload
+        //await AsyncStorage.setItem('profile', state)
       },
       setFirstName: (state, action) => {
-        console.log(action)
         state.firstName = action.payload
+        //await AsyncStorage.setItem('profile', state)
       },
       setLastName: (state, action) => {
         state.lastName = action.payload
+        //await AsyncStorage.setItem('profile', state)
+      },
+      setProfile: (state, action) => {
+        state.email = action.payload?.email ?? '';
+        state.firstName = action.payload?.firstName ?? '';
+        state.lastName = action.payload?.lastName ?? '';
       },
     },
   })
   
-  export const { signIn, signOff, setEmail, setFirstName, setLastName } = profileSlice.actions
+  export const { signIn, signOff, setEmail, setFirstName, setLastName, setProfile } = profileSlice.actions
   
   // Other code such as selectors can use the imported `RootState` type
-  export const selectProfile = (state) => { console.log(state); return state.profile }
+  export const selectProfile = (state) => state.profile
 
   export default profileSlice.reducer
